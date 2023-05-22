@@ -1,0 +1,13 @@
+
+alias ccc="gcc -Wall -Wextra -Werror"
+alias reload="source ~/.bashrc"
+alias brc="vim ~/.bashrc"
+alias vrc="vim ~/.vimrc"
+alias wai="clear && pwd && ls"
+alias gopush="git add . && git commit -m 'Automated push' && git push"
+alias py="python3"
+alias update="sudo apt-get update && sudo apt-get upgrade"
+alias wiki="open https://en.wikipedia.org/wiki/Special:Random"
+alias leaks="valgrind --leak-check=full"
+alias kll="kill -kill"
+
