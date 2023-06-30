@@ -10,6 +10,7 @@ set showmatch
 set textwidth=80
 set title
 set scrolloff=10
+set showcmd
 
 command! W w
 command! Q q
