@@ -44,7 +44,7 @@ function exe()
 	clear
 	local FILE=".exec.out" # temporary file
 	local exe="null" # name of the executable
-	ls -l | grep 'x' > $FILE # saves all the files with execution permissions in a new file
+	ls -l | grep '\-x' > $FILE # saves all the files with execution permissions in a new file
 	while read line; do # cycle on all the lines of $FILE
 		if ! [ "$(echo $line | head -c 1)" = "d" ]; then # the first file that's not a directory
 			exe=$(echo $line | grep -oE '[^[:space:]]+$') # is the file that will be executed
