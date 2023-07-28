@@ -51,11 +51,28 @@ function exe()
 			break
 		fi
 	done <"$FILE" # idk
+
 	rm -f $FILE > /dev/null 2>&1 # deletes the temporary file
+	if [ "$1" = "-e" ]; then # use a specific name for the executable
+		shift
+		exe="$1"
+		shift
+	fi
+
 	if [ "$exe" = "null" ]; then # check if an executable was found
 		printf "\033[31mexec: no executable found\n\033[0m" # if not, stop the command
 		return 1
 	fi
-	./$exe $@ # execute the file with the parameters passed to this command
+
+	# execute the file with the parameters passed to this command
+	if [ "$1" = "-v" ]; then # execute with valgrind
+		shift
+		valgrind ./$exe $@
+	elif [ "$1" = "-l" ]; then # execute with valgrind --leak-check=full
+		shift
+		valgrind --leak-check=full ./$exe $@
+	else
+		./$exe $@
+	fi
 }
 
