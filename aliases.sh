@@ -1,3 +1,6 @@
+# bash prompt
+export PS1="\\[\e[1;32m\\]\u@\s\\[\e[0m\\]:\\[\e[1;34m\\]\W\\[\e[0m\\]\$ "
+# srcs: https://phoenixnap.com/kb/change-bash-prompt-linux
 
 # some general shortcuts
 alias wai="clear && pwd && ls"
