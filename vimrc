@@ -1,10 +1,10 @@
 syntax on
 set number
-set smartindent
-set autoindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set si
+set ai
+set ts=4
+set sw=4
+set sts=4
 set mouse=a
 set showmatch
 set textwidth=80
