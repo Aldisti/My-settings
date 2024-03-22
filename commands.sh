@@ -18,14 +18,10 @@ function go()
 
 function push()
 {
-	if [ $# -gt 1 ]; then
-		echo "'push' command too many arguments"
-		return 1
-	fi
 	if [ $# -eq 0 ]; then
-		git add . && git commit -m "Automated push by Aldisti" && git push
+		git add . && git commit -m "auto push" && git push
 	else
-		git add . && git commit -m "$1" && git push
+		git add . && git commit -m "$@" && git push
 	fi
 	return 0
 }
