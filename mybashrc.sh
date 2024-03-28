@@ -1,8 +1,12 @@
 #!/bin/sh
 
-# bash prompt
+# Bash Prompt
 # export PS1='\\[\e[1;32m\\]\u@\s\\[\e[0m\\]:\\[\e[1;34m\\]\W\\[\e[0m\\]\$ '
 # srcs: https://phoenixnap.com/kb/change-bash-prompt-linux
+# To change the color of the '@' based on the exit code of the last executed command
+# Put in place of '@' the following function:
+# __color_status() { if [ $? -eq 0 ]; then echo -e "@"; else echo -e "\033[1;31m@\033[1;32m"; fi }
+# So the PS1 will be: '...\u`__color_status`\s...'
 
 # to make your workspaces on different monitors independents
 # gsettings set org.gnome.mutter workspaces-only-on-primary true
@@ -22,15 +26,8 @@
 # set disassembly-flavor intel
 # to make it permanent put the command inside ~/.gdbinit
 
-# --------- some utils ---------
-_exit_status=0
-
-_command_not_found()
-{
-	echo "$1 command not found, try to install it!"
-}
-
-# ------------------------------
+# how to make ignore-case the autocompletion
+# go in /etc/inputrc
 
 
 
@@ -44,6 +41,7 @@ fi
 alias erc="vim $SPT_RC"
 alias vrc="vim ~/.vimrc"
 alias mrc="vim ~/.mybashrc"
+alias irc="sudo vim /etc/inputrc"
 
 # updates the 'bashrc' or 'zshrc' that the actual terminal is using
 alias reload="source $SPT_RC"
@@ -57,44 +55,30 @@ alias nt="gnome-terminal --"
 alias curl="curl $@ && echo"
 
 # git shortcuts
-which git > /dev/null 2>&1
-_exit_status=$?
-if test $_exit_status -eq 0; then
-	alias gcln="git clone"
-	alias gpll="git pull"
-	alias gstt="git status"
-	alias gsth="git stash"
-	alias gswt="git switch"
-	alias gmrg="git merge"
-	alias glog="git log"
-	alias gpsh="git push"
-	alias gcmt="git commit"
-	alias gadd="git add"
-	alias  grm="git rm"
-else
-	alias gcln="_command_not_found git"
-	alias gpll="_command_not_found git"
-fi
+alias gcln="git clone"
+alias gpll="git pull"
+alias gstt="git status"
+alias gsth="git stash"
+alias gswt="git switch"
+alias gmrg="git merge"
+alias glog="git log"
+alias gpsh="git push"
+alias gcmt="git commit"
+alias gadd="git add"
+alias  grm="git rm"
 
 # docker shortcuts
-which docker > /dev/null 2>&1
-_exit_status=$?
-if test $_exit_status -eq 0; then
-	alias dps="docker ps"
-	alias drm="docker rm"
-	alias dins="docker inspect"
-	alias dimg="docker image"
-	alias dvol="docker volume"
-	alias dnet="docker network"
-	alias dsp="docker system prune"
-	alias dcmp="docker compose"
-	alias dexe="docker exec"
-	alias dbld="docker build"
-	alias drun="docker run"
-else
-	alias dps="_command_not_found docker"
-	alias dimg="_command_not_found docker"
-fi
+alias dps="docker ps"
+alias drm="docker rm"
+alias dins="docker inspect"
+alias dimg="docker image"
+alias dvol="docker volume"
+alias dnet="docker network"
+alias dsp="docker system prune"
+alias dcmp="docker compose"
+alias dexe="docker exec"
+alias dbld="docker build"
+alias drun="docker run"
 
 # compile C files with some basic flags
 alias ccc="gcc -Wall -Wextra -Werror"
@@ -104,13 +88,7 @@ alias ggg="g++ -Wall -Wextra -Werror -std=c++98"
 alias py="python3"
 
 # check for leaks with valgrind
-which valgrind > /dev/null 2>&1
-_exit_status=$?
-if test $_exit_status -eq 0; then
-	alias leaks="valgrind --leak-check=full --show-leak-kinds=all"
-else
-	alias leaks="_command_not_found valgrind"
-fi
+alias leaks="valgrind --leak-check=full --show-leak-kinds=all"
 
 # update your computer (only if you are in sudoersi)
 alias update="sudo apt-get update && sudo apt-get upgrade -y"
