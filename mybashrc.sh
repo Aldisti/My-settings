@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # bash prompt
 # export PS1='\\[\e[1;32m\\]\u@\s\\[\e[0m\\]:\\[\e[1;34m\\]\W\\[\e[0m\\]\$ '
 # srcs: https://phoenixnap.com/kb/change-bash-prompt-linux
@@ -14,6 +15,13 @@
 # how to undo it (and use UTC)
 # timedatectl set-local-rtc 0 --adjust-system-clock
 
+# how to disable descrete GPU
+# sudo prime-select <nvidia|intel|on-demand|query>
+
+# how to have intel syntax on gdb
+# set disassembly-flavor intel
+# to make it permanent put the command inside ~/.gdbinit
+
 # --------- some utils ---------
 _exit_status=0
 
@@ -23,6 +31,8 @@ _command_not_found()
 }
 
 # ------------------------------
+
+
 
 # check the current shell and switch the rc file
 if [ "$SHELL" = "/bin/zsh" ]; then
@@ -44,6 +54,7 @@ alias cp="cp -r"
 alias lr="ls -R"
 alias kll="kill -kill"
 alias nt="gnome-terminal --"
+alias curl="curl $@ && echo"
 
 # git shortcuts
 which git > /dev/null 2>&1
@@ -59,6 +70,7 @@ if test $_exit_status -eq 0; then
 	alias gpsh="git push"
 	alias gcmt="git commit"
 	alias gadd="git add"
+	alias  grm="git rm"
 else
 	alias gcln="_command_not_found git"
 	alias gpll="_command_not_found git"
