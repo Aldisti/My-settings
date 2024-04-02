@@ -27,7 +27,11 @@
 # to make it permanent put the command inside ~/.gdbinit
 
 # how to make ignore-case the autocompletion
-# go in /etc/inputrc
+# go in /etc/inputrc and search for it
+
+# if you want to have a partial history
+# bind arrow-[up|down] to history-search-[forward|backward]
+# inside the /etc/inputrc
 
 
 
