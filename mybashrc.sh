@@ -27,13 +27,23 @@
 # to make it permanent put the command inside ~/.gdbinit
 
 # how to make ignore-case the autocompletion
-# go in /etc/inputrc and search for it
+# go in /etc/inputrc
 
-# if you want to have a partial history
-# bind arrow-[up|down] to history-search-[forward|backward]
-# inside the /etc/inputrc
+# how to list all listening ports
+# sudo lsof -i -P -n | grep LISTEN
 
+BLUE="\033[38;5;21m"
+CYAN="\033[38;5;81m"
+GREEN="\033[38;5;40m"
+ORANGE="\033[38;5;202m"
+PURPLE="\033[35;1m"
+RED="\033[38;5;124m"
+WHITE="\033[38;5;231m"
+YELLOW="\033[38;5;226m"
+RESET="\033[0m"
+MC="\033[37m"
 
+ECHO_COLOR="echo -ne "
 
 # check the current shell and switch the rc file
 if [ "$SHELL" = "/bin/zsh" ]; then
@@ -43,7 +53,7 @@ else
 fi
 # some rc shortcuts
 alias erc="vim $SPT_RC"
-alias vrc="vim ~/.vimrc"
+alias vrc="vim ~/.vim/vimrc"
 alias mrc="vim ~/.mybashrc"
 alias irc="sudo vim /etc/inputrc"
 
@@ -51,12 +61,12 @@ alias irc="sudo vim /etc/inputrc"
 alias reload="source $SPT_RC"
 
 # some general shortcuts
-alias wai="clear && pwd && ls"
+alias wai="clear && ${ECHO_COLOR}'${PURPLE}' && pwd && ${ECHO_COLOR}'${RESET}' && ls"
 alias cp="cp -r"
 alias lr="ls -R"
 alias kll="kill -kill"
 alias nt="gnome-terminal --"
-alias curl="curl $@ && echo"
+# alias curl="curl $@ && echo"
 
 # git shortcuts
 alias gcln="git clone"
@@ -83,6 +93,8 @@ alias dcmp="docker compose"
 alias dexe="docker exec"
 alias dbld="docker build"
 alias drun="docker run"
+alias dclean='drm -f $(dps -aq) && dimg rm -f $(dimg ls -aq) && dvol rm -f $(dvol ls -q)'
+alias dcstart='drm -f $(dps -aq); dimg rm -f $(dimg ls -aq); dvol rm $(dvol ls -q); dcmp up'
 
 # compile C files with some basic flags
 alias ccc="gcc -Wall -Wextra -Werror"
