@@ -32,6 +32,10 @@
 # how to list all listening ports
 # sudo lsof -i -P -n | grep LISTEN
 
+# where should I store one of my commands?
+# /usr/local/bin
+# more info: https://askubuntu.com/a/465209
+
 BLUE="\033[38;5;21m"
 CYAN="\033[38;5;81m"
 GREEN="\033[38;5;40m"
