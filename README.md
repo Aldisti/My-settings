@@ -35,7 +35,7 @@ To execute a **function** inside your prompt you can place it inside two backtic
 \u@\h:\w:`my_function`$
 ```
 
-## Terminal
+## Terminal 🖥️
 
 ### Readline
 
@@ -63,12 +63,6 @@ To make the **up** and **down** arrows search for partial commands, add or uncom
 > [!NOTE]
 > The letters A and B could be inverted on your system/machine.
 
-
-
-## System
-
-### Terminal
-
 #### Command on new terminal
 
 To run a command on a new terminal and than make it close when the command exits, do this.
@@ -80,6 +74,10 @@ gnome-terminal -- <command>
 > [!IMPORTANT]
 > This probably works only if you have GNOME installed.
 
+
+
+## System
+
 ### Workspaces
 
 To switch between your workspaces on different monitors, use this command.
@@ -88,7 +86,7 @@ To switch between your workspaces on different monitors, use this command.
 gsettings set org.gnome.mutter workspaces-only-on-primary true
 ```
 
-### Time
+### Time ⏲️
 
 On dual boot with Windows, if you want to keep both OS's time synced, do this.
 
@@ -132,5 +130,13 @@ To make gdb use the **intel** syntax while debugging, add this line in the conf 
 set disassembly-flavor intel
 ```
 
+### SSH 🔑
 
+#### Jump Host connection
+
+To connect to a nachine with ssh passing through a jump host authenticated with rsa.
+
+```bash
+ssh -i /path/to/priv_key -J jump_host_username@jump_host_ip machine_username@machine_ip
+```
 
