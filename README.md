@@ -18,7 +18,7 @@ To color the text inside your prompt you can use the regular **escape codes**.
 
 #### Path
 
-To change the prompt of the shell you have to look for the **PS1** env variable inside your bashrc.
+To change the prompt of the bash shell, you have to look for the **PS1** env variable inside your bashrc.
 
 ```bash
 PS1='\\[\e[1;32m\\]\u@\s\\[\e[0m\\]:\\[\e[1;34m\\]\W\\[\e[0m\\]\$ '
@@ -44,7 +44,7 @@ User's configuration file is in: `~/.inputrc`
 
 #### Autocompletion case insensitive
 
-To make readline autocomplete in a case insesitive manner, add or uncomment the lines below in the conf file.
+To make readline autocomplete in a case insesitive manner, add (or uncomment) the lines below in the conf file (/etc/inputrc).
 
 ```bash
 set completion-ignore-case On
@@ -134,7 +134,7 @@ set disassembly-flavor intel
 
 #### Jump Host connection
 
-To connect to a nachine with ssh passing through a jump host authenticated with rsa.
+To connect to a machine with ssh passing through a jump host authenticated with rsa.
 
 ```bash
 ssh -i /path/to/priv_key -J jump_host_username@jump_host_ip machine_username@machine_ip
