@@ -56,13 +56,13 @@ else
 	SPT_RC="~/.bashrc"
 fi
 # some rc shortcuts
-alias erc="vim $SPT_RC"
+alias erc="vim ${SPT_RC}"
 alias vrc="vim ~/.vim/vimrc"
-alias mrc="vim ~/.mybashrc"
+alias mrc="vim ${MY_BASHRC}"
 alias irc="sudo vim /etc/inputrc"
 
 # updates the 'bashrc' or 'zshrc' that the actual terminal is using
-alias reload="source $SPT_RC"
+alias reload="source ${SPT_RC}"
 
 # some general shortcuts
 alias wai="clear && ${ECHO_COLOR}'${PURPLE}' && pwd && ${ECHO_COLOR}'${RESET}' && ls"
@@ -73,7 +73,7 @@ alias nt="gnome-terminal --"
 # alias curl="curl $@ && echo"
 
 # git shortcuts
-alias gcln="git clone"
+#alias gcln="git clone"
 alias gpll="git pull"
 alias gstt="git status"
 alias gsth="git stash"
@@ -128,4 +128,5 @@ alias cleanvim="rm -f ~/.vim/undo/*"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
