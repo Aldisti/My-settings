@@ -36,6 +36,9 @@
 # /usr/local/bin
 # more info: https://askubuntu.com/a/465209
 
+# how to unstage added untracked files in git
+# git rm --cached --ignore-unmatch -r .
+
 BLUE="\033[38;5;21m"
 CYAN="\033[38;5;81m"
 GREEN="\033[38;5;40m"
@@ -60,6 +63,7 @@ alias erc="vim ${SPT_RC}"
 alias vrc="vim ~/.vim/vimrc"
 alias mrc="vim ${MY_BASHRC}"
 alias irc="sudo vim /etc/inputrc"
+alias vhosts="sudo vim /etc/hosts"
 
 # updates the 'bashrc' or 'zshrc' that the actual terminal is using
 alias reload="source ${SPT_RC}"
@@ -71,6 +75,11 @@ alias lr="ls -R"
 alias kll="kill -kill"
 alias nt="gnome-terminal --"
 # alias curl="curl $@ && echo"
+
+# clean linux cache
+alias cleancache="echo 1 | sudo tee /proc/sys/vm/drop_caches > /dev/null"
+# show listening ports
+alias ports="lsof -i -n -P | grep LISTEN"
 
 # git shortcuts
 #alias gcln="git clone"
@@ -85,6 +94,10 @@ alias gcmt="git commit"
 alias gadd="git add"
 alias  grm="git rm"
 
+alias ggraph="git log --graph --oneline"
+alias gconfe="git config user.email 'alessandro.distefano@leonardo.com'"
+alias gconfu="git config user.name 'Alessandro Di Stefano'"
+
 # docker shortcuts
 alias dps="docker ps"
 alias drm="docker rm"
@@ -92,7 +105,8 @@ alias dins="docker inspect"
 alias dimg="docker image"
 alias dvol="docker volume"
 alias dnet="docker network"
-alias dsp="docker system prune"
+# alias dsp="docker system prune"
+alias dsp="echo -e 'dsp alias not available'"
 alias dcmp="docker compose"
 alias dexe="docker exec"
 alias dbld="docker build"
@@ -115,6 +129,8 @@ alias update="sudo apt-get update && sudo apt-get upgrade -y"
 # opens a random wiki page (you need 'open' command)
 alias wiki="xdg-open https://en.wikipedia.org/wiki/Special:Random &"
 
+alias intellij="intellij-idea-ultimate . >/dev/null 2>&1 &"
+
 # oblique strategies
 # files in /usr/share/games/fortune/
 # to create the file .dat from the normal text file
@@ -129,4 +145,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
+export PATH="/home/aldisti/Documents/ESA/sonar-scanner/bin:$PATH"
 

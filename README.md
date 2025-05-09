@@ -140,3 +140,25 @@ To connect to a machine with ssh passing through a jump host authenticated with 
 ssh -i /path/to/priv_key -J jump_host_username@jump_host_ip machine_username@machine_ip
 ```
 
+### Chrome
+
+#### Remove HSTS policy
+
+Go to `chrome://net-internals/#hsts` and then add the domain under **Delete domain security policies**.
+
+#### Run Chrome without security features
+
+To run Chrome without security features (e.g. CORS🔥) run chrome with the following options.
+
+```bash
+google-chrome --disable-web-security --user-data-dir=/path/to/anything
+```
+
+### Certificates
+
+Convert a _private key_ and a _pem_ file into a **pkcs** file.
+
+```bash
+openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt
+```
+
