@@ -93,10 +93,14 @@ alias gpsh="git push"
 alias gcmt="git commit"
 alias gadd="git add"
 alias  grm="git rm"
+alias gchp="git cherry-pick"
 
+# git "longcuts"
 alias ggraph="git log --graph --oneline"
 alias gconfe="git config user.email 'alessandro.distefano@leonardo.com'"
 alias gconfu="git config user.name 'Alessandro Di Stefano'"
+alias gremup="git remote update"
+alias gchpnc="git cherry-pick --no-commit"
 
 # docker shortcuts
 alias dps="docker ps"
@@ -114,12 +118,17 @@ alias drun="docker run"
 alias dclean='drm -f $(dps -aq) && dimg rm -f $(dimg ls -aq) && dvol rm -f $(dvol ls -q)'
 alias dcstart='drm -f $(dps -aq); dimg rm -f $(dimg ls -aq); dvol rm $(dvol ls -q); dcmp up'
 
+function dimgrmnone() {
+	dimg rm $(dimg ls -a | grep none | awk '{print $3}' | tr '\n' ' ')
+}
+
 # compile C files with some basic flags
 alias ccc="gcc -Wall -Wextra -Werror"
 # compile C++ files with some basic flags and C++98 version
 alias ggg="g++ -Wall -Wextra -Werror -std=c++98"
 # executes python programs
 alias py="python3"
+alias venv="python3 -m venv .venv && source .venv/bin/activate"
 
 # check for leaks with valgrind
 alias leaks="valgrind --leak-check=full --show-leak-kinds=all"
@@ -129,7 +138,10 @@ alias update="sudo apt-get update && sudo apt-get upgrade -y"
 # opens a random wiki page (you need 'open' command)
 alias wiki="xdg-open https://en.wikipedia.org/wiki/Special:Random &"
 
-alias intellij="intellij-idea-ultimate . >/dev/null 2>&1 &"
+#alias intellij="intellij-idea-ultimate . >/dev/null 2>&1 &"
+
+# Alias for a batcat command that doesn't print line numbers
+alias batnonum="batcat --style changes,header-filename"
 
 # oblique strategies
 # files in /usr/share/games/fortune/
@@ -139,6 +151,14 @@ alias oblique="fortune oblique"
 
 # clean vim undo cache
 alias cleanvim="rm -f ~/.vim/undo/*"
+
+gentok() {
+	local size="$1"
+	if [ "$size" = "" ]; then
+		local size="15"
+	fi
+	openssl rand -base64 $size
+}
 
 # some cd shortcuts
 alias ..="cd .."
