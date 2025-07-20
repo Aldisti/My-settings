@@ -39,13 +39,40 @@ set undolevels=100
 set undoreload=1000
 
 
+
+" Adaptive indentation type and size ----------------------
+
 " Use filetype detection
 filetype on
 filetype indent on
 
 " Python: 4 spaces
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal expandtab ts=4 sw=4 sts=4
 " YAML: 2 spaces
-autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType yaml,yml setlocal expandtab ts=2 sw=2 sts=2
 " C / C++: real tabs, tab width = 4
-autocmd FileType c,cpp setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType c,cpp setlocal noexpandtab ts=4 sw=4 sts=4
+autocmd FileType go setlocal noexpandtab ts=4 sw=4 sts=4
+
+" ---------------------------------------------------------
+
+filetype plugin indent on
+
+" Plugin manager and indent guide plugin ------------------
+
+" Initialize plugin system
+call plug#begin('~/.vim/plugged')
+" Indent guide plugin
+Plug 'Yggdroot/indentLine'
+call plug#end()
+
+" Use a dot for indent lines
+" let g:indentLine_char='¦'
+let g:indentLine_char_list=['¦','.']
+let g:indentLine_enabled=1
+" let g:indentLine_setTabs=1
+" let g:indentLine_setConceal=0
+let g:indentLine_showFirstIndentLevel=0
+
+" ---------------------------------------------------------
+

@@ -13,3 +13,7 @@ echo -e "\nsource $PWD/mybashrc.sh\n" >> $HOME/.bashrc
 mkdir $HOME/.vim
 ln -s $PWD/vimrc $HOME/.vim/vimrc
 
+# install vim plugin manager
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
