@@ -37,3 +37,15 @@ set undodir=~/.vim/undo
 set undolevels=100
 " not really clear
 set undoreload=1000
+
+
+" Use filetype detection
+filetype on
+filetype indent on
+
+" Python: 4 spaces
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+" YAML: 2 spaces
+autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
+" C / C++: real tabs, tab width = 4
+autocmd FileType c,cpp setlocal noexpandtab tabstop=4 shiftwidth=4
