@@ -67,8 +67,8 @@ Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Use a dot for indent lines
-" let g:indentLine_char='¦'
-let g:indentLine_char_list=['¦','.']
+let g:indentLine_char='¦'
+" let g:indentLine_char_list=['¦','.']
 let g:indentLine_enabled=1
 " let g:indentLine_setTabs=1
 " let g:indentLine_setConceal=0
