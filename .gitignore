@@ -1,3 +1,6 @@
 *.o
 *.class
 *.swp
+
+gen_emojis
+emojis_zipped
