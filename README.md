@@ -162,3 +162,11 @@ Convert a _private key_ and a _pem_ file into a **pkcs** file.
 openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt
 ```
 
+### Emoji Database
+
+Retrieve a database of emojis.
+
+```bash
+curl -X POST 'https://codebeautify.org/randomData' -H "Content-Type: application/x-www-form-urlencoded" -d "type=emoji" > emojis
+```
+
