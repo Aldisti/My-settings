@@ -170,3 +170,13 @@ Retrieve a database of emojis.
 curl -X POST 'https://codebeautify.org/randomData' -H "Content-Type: application/x-www-form-urlencoded" -d "type=emoji" > emojis
 ```
 
+### Virtual Box
+
+Since Ubuntu 25.04, before running a VM in Virtual Box, you have to execute the following commands:
+
+```bash
+sudo modprobe -r kvm_intel
+sudo modprobe -r kvm
+```
+
+
