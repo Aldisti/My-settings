@@ -86,6 +86,18 @@ To switch between your workspaces on different monitors, use this command.
 gsettings set org.gnome.mutter workspaces-only-on-primary true
 ```
 
+### Dock
+
+On Ubuntu, when **Auto hide dock** is enabled and you're using more than one monitor,
+when you move the mouse from one monitor to another (and between them there is the dock),
+the mouse gets stuck. To avoid this, you can turn off the following property:
+
+```bash
+gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show false
+```
+
+
+
 ### Time ⏲️
 
 On dual boot with Windows, if you want to keep both OS's time synced, do this.
