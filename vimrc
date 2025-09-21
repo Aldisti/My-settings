@@ -48,6 +48,8 @@ filetype indent on
 
 " Python: 4 spaces
 autocmd FileType python setlocal expandtab ts=4 sw=4 sts=4
+autocmd FileType sh,shell setlocal expandtab ts=4 sw=4 sts=4
+autocmd FileType xml setlocal expandtab ts=4 sw=4 sts=4
 " YAML: 2 spaces
 autocmd FileType yaml,yml setlocal expandtab ts=2 sw=2 sts=2
 " C / C++: real tabs, tab width = 4
