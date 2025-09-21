@@ -1,7 +1,14 @@
 #!/bin/bash
 
-# run this script to setup everything
-# it creates links to make available the gcln and setjava commands
+
+# This is an installation script.
+
+# It allows to easly set up a system with some useful commands and some
+# predefined configurations, like a bashrc with many aliases for different
+# tools (docker and git).
+# Also, it makes available some useful scripts/programs inside
+# the folder 'commands' to the system.
+
 
 COMMANDS_DIR="/usr/local/bin"
 ROOT_DIR="$PWD/$(dirname $0)"
