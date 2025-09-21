@@ -152,19 +152,14 @@ alias oblique="fortune oblique"
 # clean vim undo cache
 alias cleanvim="rm -f ~/.vim/undo/*"
 
-gentok() {
-	local size="$1"
-	if [ "$size" = "" ]; then
-		local size="15"
-	fi
-	openssl rand -base64 $size
-}
-
 # some cd shortcuts
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
+HISTSIZE=80000
+HISTFILESIZE=100000
 
 export PATH="/home/aldisti/Documents/ESA/sonar-scanner/bin:$PATH"
 
