@@ -97,8 +97,8 @@ alias gchp="git cherry-pick"
 
 # git "longcuts"
 alias ggraph="git log --graph --oneline"
-alias gconfe="git config user.email 'alessandro.distefano@leonardo.com'"
-alias gconfu="git config user.name 'Alessandro Di Stefano'"
+alias gconfe="git config user.email"
+alias gconfu="git config user.name"
 alias gremup="git remote update"
 alias gchpnc="git cherry-pick --no-commit"
 
@@ -115,8 +115,10 @@ alias dcmp="docker compose"
 alias dexe="docker exec"
 alias dbld="docker build"
 alias drun="docker run"
-alias dclean='drm -f $(dps -aq) && dimg rm -f $(dimg ls -aq) && dvol rm -f $(dvol ls -q)'
-alias dcstart='drm -f $(dps -aq); dimg rm -f $(dimg ls -aq); dvol rm $(dvol ls -q); dcmp up'
+# alias dclean='drm -f $(dps -aq) && dimg rm -f $(dimg ls -aq) && dvol rm -f $(dvol ls -q)'
+alias dclean="echo -e 'You shouldn't use this type of aliases!'"
+# alias dcstart='drm -f $(dps -aq); dimg rm -f $(dimg ls -aq); dvol rm $(dvol ls -q); dcmp up'
+alias dcstart="echo -e 'You shouldn't use this type of aliases!'"
 
 function dimgrmnone() {
 	dimg rm $(dimg ls -a | grep none | awk '{print $3}' | tr '\n' ' ')
