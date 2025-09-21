@@ -4,22 +4,23 @@
 # it creates links to make available the gcln and setjava commands
 
 COMMANDS_DIR="/usr/local/bin"
-ROOT_DIR="$(dirname $0)"
+ROOT_DIR="$PWD/$(dirname $0)"
 
 main() {
-	ln -fs $ROOT_DIR/gcln.sh $COMMANDS_DIR/gcln
-    ln -fs $ROOT_DIR/setjava.sh $COMMANDS_DIR/setjava
-    ln -fs $ROOT_DIR/gentok.sh $COMMANDS_DIR/gentok
-    ln -fs $ROOT_DIR/proxy.sh $COMMANDS_DIR/proxy
+	sudo ln -fs $ROOT_DIR/gcln $COMMANDS_DIR/gcln
+    sudo ln -fs $ROOT_DIR/setjava $COMMANDS_DIR/setjava
+    sudo ln -fs $ROOT_DIR/gentok $COMMANDS_DIR/gentok
+    sudo ln -fs $ROOT_DIR/proxy $COMMANDS_DIR/proxy
 
-    echo -e "\nsource $ROOT_DIR/mybashrc.sh\n" >> $HOME/.bashrc
+    echo -e "export MY_BASHRC=$ROOT_DIR/bashrc" >> $HOME/.bashrc
+    echo -e "\nsource \$MY_BASHRC\n" >> $HOME/.bashrc
 
     set_vim
     set_go
 }
 
 set_vim() {
-    mkdir $HOME/.vim
+    mkdir -p $HOME/.vim
     ln -s $ROOT_DIR/vimrc $HOME/.vim/vimrc
 
     # install vim plugin manager

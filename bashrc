@@ -161,5 +161,4 @@ alias .....="cd ../../../.."
 HISTSIZE=80000
 HISTFILESIZE=100000
 
-export PATH="/home/aldisti/Documents/ESA/sonar-scanner/bin:$PATH"
 
