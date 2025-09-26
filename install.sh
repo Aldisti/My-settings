@@ -94,6 +94,19 @@ _install() {
         obsidian postman brave kubectl go 
 }
 
+set_gnome() {
+    if ! ask_bool "Customize Gnome?"; then
+        return 0
+    fi
+    sudo apt install -y \
+        gnome-shell-extensions gnome-shell-extension-manager
+    echo -e "Install following extensions: aztaskbar, vitals"
+    if ! ask_bool "Configure Gnome extensions?"; then
+        return 0
+    fi
+    dconf load /org/gnome/shell/extensions/ < "$CONFS_DIR/gnome-extensions.conf"
+}
+
 # 1: message (without [Y/n])
 # Usage: if ask_bool "Do you want it?"; then ...; fi
 ask_bool() {
