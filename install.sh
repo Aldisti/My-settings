@@ -16,6 +16,7 @@ CMDS_DIR="$ROOT_DIR/commands"
 CONFS_DIR="$ROOT_DIR/confs"
 
 main() {
+    _install
     set_commands
     set_bashrc
     set_vim
@@ -75,6 +76,22 @@ set_ghostty() {
     fi
     mkdir -p $HOME/.config/ghostty
     ln -fs $CONFS_DIR/ghostty.config $HOME/.config/ghostty/config
+}
+
+_install() {
+    if ! ask_bool "Install some apps using apt?"; then
+        return 0
+    fi
+    sudo apt update
+    sudo apt install \
+        git vim nasm gparted valgrind jq \
+        openjdk-8-jdk openjdk-17-jdk openjdk-21-jdk openjdk-25-jdk
+    if ! ask_bool "Install some apps using snap?"; then
+        return 0
+    fi
+    sudo snap install \
+        code ghostty helm intellij-idea-ultimate \
+        obsidian postman brave kubectl go 
 }
 
 # 1: message (without [Y/n])
