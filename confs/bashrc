@@ -124,6 +124,18 @@ function dimgrmnone() {
 	dimg rm $(dimg ls -a | grep none | awk '{print $3}' | tr '\n' ' ')
 }
 
+# kubernetes shortcuts
+alias ocps="oc projects"
+alias ocp="oc project"
+alias k="kubectl"
+
+# nordvpn shortcuts
+alias nord="nordvpn"
+alias nordc="nordvpn c"
+alias nordd="nordvpn d"
+alias nordci="nordvpn c italy"
+
+
 # compile C files with some basic flags
 alias ccc="gcc -Wall -Wextra -Werror"
 # compile C++ files with some basic flags and C++98 version
