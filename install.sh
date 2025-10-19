@@ -28,10 +28,11 @@ set_commands() {
     if ! ask_bool "Install all the commands?"; then
         return 0
     fi
-    sudo ln -fs $CMDS_DIR/gcln $COMMANDS_DIR/gcln
-    sudo ln -fs $CMDS_DIR/setjava $COMMANDS_DIR/setjava
-    sudo ln -fs $CMDS_DIR/gentok $COMMANDS_DIR/gentok
-    sudo ln -fs $CMDS_DIR/proxy $COMMANDS_DIR/proxy
+	for cmd in $CMDS_DIR/*; do
+		if ask_bool "Install $cmd?"; then
+			sudo ln -fs $CMDS_DIR/$cmd $COMMANDS_DIR/$cmd
+		fi
+	done
 }
 
 set_bashrc() {
