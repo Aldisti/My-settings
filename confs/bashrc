@@ -62,6 +62,7 @@ fi
 alias erc="vim ${SPT_RC}"
 alias vrc="vim ~/.vim/vimrc"
 alias mrc="vim ${MY_BASHRC}"
+alias grc="vim ~/.config/ghostty/config"
 alias irc="sudo vim /etc/inputrc"
 alias vhosts="sudo vim /etc/hosts"
 
