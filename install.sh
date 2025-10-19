@@ -14,6 +14,7 @@ COMMANDS_DIR="/usr/local/bin"
 ROOT_DIR="$PWD/$(dirname $0)"
 CMDS_DIR="$ROOT_DIR/commands"
 CONFS_DIR="$ROOT_DIR/confs"
+RSC_DIR="$ROOT_DIR/resources"
 
 main() {
     _install
@@ -77,6 +78,7 @@ set_ghostty() {
     fi
     mkdir -p $HOME/.config/ghostty
     ln -fs $CONFS_DIR/ghostty.config $HOME/.config/ghostty/config
+    ln -fs $RSC_DIR/ghostty-background.png $HOME/.config/ghostty/background.png
 }
 
 _install() {
